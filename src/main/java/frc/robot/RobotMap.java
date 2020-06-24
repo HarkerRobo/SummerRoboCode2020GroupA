@@ -14,6 +14,8 @@ public class RobotMap {
 
         public static final int SHOOTER_FORWARD_SOLENOID = 0;
         public static final int SHOOTER_BACKWARD_SOLENOID = 0;
+        public static final int SHOOTER_MASTER_ID = 0;
+        public static final int SHOOTER_FOLLOWER_ID = 0;
 
         public static final int INTAKE_FORWARD_SOLENOID = 0;
         public static final int INTAKE_BACKWARD_SOLENOID = 0;
@@ -27,10 +29,12 @@ public class RobotMap {
         public static final int INTAKE_ID = 0;
         public static final int SPINNER_ID = 0;
 
-        public static final int[] DRIVE_IDS = {0, 2, 4, 6};
+        public static final int[] DRIVE_IDS = {0, 2, 4, 6}; // TL, TR, BL, BR
         public static final int[] ANGLE_IDS = {1, 3, 5, 7};
 
         public static final int PIGEON_ID = 0;
+
+ 
     }
 
     public static final int DRIVER_PORT = 0;
