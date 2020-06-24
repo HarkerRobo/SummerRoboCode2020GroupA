@@ -21,8 +21,8 @@ public class Drivetrain extends HSSwerveDrivetrain {
 
     public static final int DRIVE_VELOCITY_SLOT = 0;
     public static final int ANGLE_POSITION_SLOT = 0;
-    public static final double MAX_DRIVE_VELOCITY = 0;
-    public static final double MAX_ROTATION_VELOCITY = 0;
+    public static final double MAX_DRIVE_VELOCITY = 4;
+    public static final double MAX_ROTATION_VELOCITY = 3*Math.PI;
     public static final double PIGEON_KP = 0;
 
     private static final int[] offsets = {9084, 5951, 1582, 5891}; // TL TR BL BR
@@ -66,7 +66,7 @@ public class Drivetrain extends HSSwerveDrivetrain {
         super.setDrivetrainVelocity(tl, tr, bl, br, isPercentOutput, isMotionProfile);
 
         SmartDashboard.putNumber("tl angle", tl.angle.getDegrees());
-        SmartDashboard.putNumber("tl magnitude", tl.speedMetersPerSecond);
+        SmartDashboard.putNumber("tl manitude", tl.speedMetersPerSecond);
     }
 
 
