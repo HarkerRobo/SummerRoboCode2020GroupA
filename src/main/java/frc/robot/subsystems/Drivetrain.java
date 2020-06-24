@@ -23,7 +23,6 @@ public class Drivetrain extends HSSwerveDrivetrain {
     public static final int ANGLE_POSITION_SLOT = 0;
     public static final double MAX_DRIVE_VELOCITY = 4;
     public static final double MAX_ROTATION_VELOCITY = 3*Math.PI;
-    public static final double PIGEON_KP = 0;
 
     private static final int[] offsets = {9084, 5951, 1582, 5891}; // TL TR BL BR
     private static TalonFXInvertType[] driveInverts = {TalonFXInvertType.Clockwise, TalonFXInvertType.Clockwise, TalonFXInvertType.Clockwise, TalonFXInvertType.Clockwise};
