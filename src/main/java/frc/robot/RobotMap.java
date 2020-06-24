@@ -39,6 +39,4 @@ public class RobotMap {
 
     public static final int DRIVER_PORT = 0;
     public static final int OPERATOR_PORT = 1;
-    public static final int CANCODER_ID = 0;
-
 }

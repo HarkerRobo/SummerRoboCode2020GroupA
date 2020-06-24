@@ -4,6 +4,8 @@ import harkerrobolib.subsystems.HSSwerveDrivetrain;
 import harkerrobolib.util.SwerveModule;
 import harkerrobolib.wrappers.HSPigeon;
 import edu.wpi.first.wpilibj.kinematics.SwerveDriveKinematics;
+import edu.wpi.first.wpilibj.kinematics.SwerveModuleState;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotMap;
 
 import com.ctre.phoenix.motorcontrol.TalonFXInvertType;
@@ -57,6 +59,16 @@ public class Drivetrain extends HSSwerveDrivetrain {
         setupPositionPID(ANGLE_POSITION_SLOT, ANGLE_POSITION_KP, ANGLE_POSITION_KI, ANGLE_POSITION_KD, ANGLE_RAMP_RATE);
         setupVelocityPID(DRIVE_VELOCITY_SLOT, DRIVE_VELOCITY_KF, DRIVE_VELOCITY_KP, DRIVE_VELOCITY_KI, DRIVE_VELOCITY_KD, DRIVE_RAMP_RATE);
     }
+
+    @Override
+    public void setDrivetrainVelocity(SwerveModuleState tl, SwerveModuleState tr, SwerveModuleState bl,
+            SwerveModuleState br, boolean isPercentOutput, boolean isMotionProfile) {
+        super.setDrivetrainVelocity(tl, tr, bl, br, isPercentOutput, isMotionProfile);
+
+        SmartDashboard.putNumber("tl angle", tl.angle.getDegrees());
+        SmartDashboard.putNumber("tl magnitude", tl.speedMetersPerSecond);
+    }
+
 
     public static Drivetrain getInstance() {
         if(instance == null)
