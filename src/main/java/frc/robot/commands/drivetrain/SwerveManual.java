@@ -2,7 +2,6 @@ package frc.robot.commands.drivetrain;
 
 import frc.robot.OI;
 import frc.robot.subsystems.Drivetrain;
-import harkerrobolib.util.MathUtil;
 
 public class SwerveManual extends harkerrobolib.commands.drivetrain.SwerveManual {
 

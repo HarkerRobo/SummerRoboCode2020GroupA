@@ -8,8 +8,9 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.TalonFXInvertType;
 
+import harkerrobolib.subsystems.HSFlywheel;
 
-public class Shooter extends SubsystemBase {
+public class Shooter extends HSFlywheel {
 
     private static Shooter instance;
 
@@ -20,10 +21,14 @@ public class Shooter extends SubsystemBase {
     private static TalonFXInvertType masterInvert;
     private static TalonFXInvertType followerInvert;
 
+    private static double WHEEL_DIAMETER;
+    private static int TICKS_PER_REVOLUTION;
+    private static double GEAR_RATIO;
+
     private Shooter() {
 
-        master = new TalonFX(RobotMap.CAN_IDS.SHOOTER_MASTER_ID);
-        follower = new TalonFX(RobotMap.CAN_IDS.SHOOTER_FOLLOWER_ID);
+        super(RobotMap.CAN_IDS.SHOOTER_MASTER_ID, RobotMap.CAN_IDS.SHOOTER_FOLLOWER_ID, WHEEL_DIAMETER, TICKS_PER_REVOLUTION, GEAR_RATIO);
+
         solenoid = new DoubleSolenoid(RobotMap.CAN_IDS.SHOOTER_FORWARD_SOLENOID, RobotMap.CAN_IDS.SHOOTER_BACKWARD_SOLENOID);
 
         setupFlywheel();
@@ -36,29 +41,30 @@ public class Shooter extends SubsystemBase {
     }
 
     public void setupFlywheel() {
-
-        master.configFactoryDefault();
-        follower.configFactoryDefault();
-
-        follower.follow(master);
-
-        master.setInverted(masterInvert);
-        follower.setInverted(followerInvert);      
+        super.setupFlywheel();  
 
     }
 
     public void spinShooterPercentOutput(double percentOutput) {
 
-        if(percentOutput == 0)
-            master.set(ControlMode.Disabled, 0);
-        else
-            master.set(ControlMode.PercentOutput, percentOutput);
+        super.spinShooterPercentOutput(percentOutput);
 
     }
 
     public void spinShooterVelocity(double velocity) {
 
+        super.spinShooterVelocity(velocity);
+
     }
+
+    public TalonFX getMaster() {
+        return super.getMaster();
+    }
+
+    public TalonFX getFollower() {
+        return super.getFollower();
+    }
+
 
     
 }

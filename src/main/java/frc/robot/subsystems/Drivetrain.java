@@ -1,9 +1,7 @@
 package frc.robot.subsystems;
 
 import harkerrobolib.subsystems.HSSwerveDrivetrain;
-import harkerrobolib.util.SwerveModule;
 import harkerrobolib.wrappers.HSPigeon;
-import edu.wpi.first.wpilibj.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.wpilibj.kinematics.SwerveModuleState;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotMap;

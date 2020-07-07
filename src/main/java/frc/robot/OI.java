@@ -1,5 +1,7 @@
 package frc.robot;
 
+import edu.wpi.first.wpilibj2.command.InstantCommand;
+import frc.robot.subsystems.Intake;
 import harkerrobolib.wrappers.XboxGamepad;
 
 /**
@@ -25,7 +27,9 @@ public class OI {
     }
 
     private void initBindings() {
-        
+        operatorGamepad.getButtonA().whilePressed(new InstantCommand(() -> {
+            Intake.getInstance().setOutput(1, Intake.IntakeDirection.IN);
+            }, Intake.getInstance()));
     }
 
     public XboxGamepad getDriverGamepad() {
