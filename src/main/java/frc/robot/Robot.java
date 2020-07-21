@@ -9,8 +9,11 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.auto.Autons;
 import frc.robot.commands.drivetrain.SwerveManual;
+import frc.robot.commands.intake.IntakeManual;
 import frc.robot.subsystems.Drivetrain;
+import frc.robot.subsystems.Intake;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -29,6 +32,7 @@ public class Robot extends TimedRobot {
     public void robotInit() {
 
         Drivetrain.getInstance().setDefaultCommand(new SwerveManual());
+        Intake.getInstance().setDefaultCommand(new IntakeManual());
 
         OI.getInstance();
 
@@ -60,6 +64,7 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void autonomousInit() {
+        CommandScheduler.getInstance().schedule(Autons.getAutonCommand());
     }
 
     /**

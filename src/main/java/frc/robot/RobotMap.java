@@ -37,6 +37,9 @@ public class RobotMap {
         public static final int INTAKE_LEFT_ID = 0;
         public static final int INTAKE_RIGHT_ID = 0;
 
+        public static final int SPINE_ID = 0;
+        public static final int AGITATOR_ID = 0;
+
  
     }
 

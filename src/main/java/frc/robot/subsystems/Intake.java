@@ -4,6 +4,7 @@ import frc.robot.RobotMap;
 import harkerrobolib.subsystems.HSIntake;
 import harkerrobolib.wrappers.HSFalcon;
 
+
 public class Intake extends HSIntake<HSFalcon> {
     private static Intake instance;
 
@@ -16,4 +17,5 @@ public class Intake extends HSIntake<HSFalcon> {
             instance = new Intake();
         return instance;
     }
+
 }
